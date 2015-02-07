@@ -36,6 +36,9 @@ var NameBox = React.createClass({
     return {data: JSON.parse("{}")};
   },
   componentDidMount: function() {
+    if (window.MozWebSocket) {
+      window.WebSocket = window.MozWebSocket;
+    }
     var conn = new WebSocket("wss://ws.chain.com/v2/notifications");
     conn.onopen = function (ev) {
       var req = {type: "new-transaction", block_chain: "bitcoin"};

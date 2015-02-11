@@ -1,37 +1,37 @@
-var Name = React.createClass({
+var Transaction = React.createClass({
   render: function() {
     return (
-      <div className="name">
+      <div className="transaction">
         {this.props.children}
       </div>
     );
   }
 });
 
-var NameList = React.createClass({
+var TransactionList = React.createClass({
   render: function() {
-    //var nameNodes = this.props.data.map(function (name) {
+    //var transactionNodes = this.props.data.map(function (transaction) {
     //  return (
-    //    <Name>
-    //      {name.text}
-    //    </Name>
+    //    <Transaction>
+    //      {transaction.text}
+    //    </Transaction>
     //  );
     //});
     if (this.props.data['payload']) {
-      nameNodes = this.props.data['payload']['transaction']['hash'];
+      transactionNodes = this.props.data['payload']['transaction']['hash'];
     } else {
-      nameNodes = "";
+      transactionNodes = "";
     }
     //$('#thashlist').append('<li>' + thash + '</li>');
     return (
-      <div className="nameList">
-        {nameNodes}
+      <div className="transactionList">
+        {transactionNodes}
       </div>
     );
   }
 });
 
-var NameBox = React.createClass({
+var TransactionBox = React.createClass({
   getInitialState: function() {
     return {data: JSON.parse("{}")};
   },
@@ -55,15 +55,15 @@ var NameBox = React.createClass({
   },
   render: function() {
     return (
-      <div className="nameBox">
-        <h1>Names</h1>
-        <NameList data={this.state.data} />
+      <div className="transactionBox">
+        <h1>Transactions</h1>
+        <TransactionList data={this.state.data} />
       </div>
     );
   }
 });
 
 React.render(
-  <NameBox />,
+  <TransactionBox />,
   document.getElementById('content')
 );

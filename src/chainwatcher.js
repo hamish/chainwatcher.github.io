@@ -9,6 +9,15 @@ var Transaction = React.createClass({
 });
 
 var TransactionList = React.createClass({
+  getHash: function() {
+    var payload = this.props.data.payload;
+    if (payload !== undefined && payload.type === 'new-transaction') {
+      return payload.transaction.hash;
+    } else {
+      return '';
+    }
+    //$('#thashlist').append('<li>' + thash + '</li>');
+  },
   render: function() {
     //var transactionNodes = this.props.data.map(function (transaction) {
     //  return (
@@ -17,15 +26,9 @@ var TransactionList = React.createClass({
     //    </Transaction>
     //  );
     //});
-    if (this.props.data['payload']) {
-      transactionNodes = this.props.data['payload']['transaction']['hash'];
-    } else {
-      transactionNodes = "";
-    }
-    //$('#thashlist').append('<li>' + thash + '</li>');
     return (
       <div className="transactionList">
-        {transactionNodes}
+        {getHash();}
       </div>
     );
   }

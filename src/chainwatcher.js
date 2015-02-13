@@ -26,9 +26,10 @@ var TransactionList = React.createClass({
     //    </Transaction>
     //  );
     //});
+    var hash = this.getHash();
     return (
       <div className="transactionList">
-        {getHash();}
+        {hash}
       </div>
     );
   }

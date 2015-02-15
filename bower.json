@@ -1,0 +1,21 @@
+{
+    "name": "chainwatcher",
+    "description": "Watches bitcoin transactions going past",
+    "version": "0.0.0",
+    "homepage": "",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "fluxxor": null
+    },
+    "install" : {
+        "path" : "src/vendor",
+        "sources" : {
+            "fluxxor": ["bower_components/fluxxor/build/fluxxor.js",
+                "bower_components/fluxxor/build/fluxxor.js.map",
+                "bower_components/fluxxor/build/fluxxor.min.js",
+                "bower_components/fluxxor/build/fluxxor.min.js.map"
+            ]
+        }
+    }
+}
